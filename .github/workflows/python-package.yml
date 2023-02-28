@@ -18,7 +18,7 @@ on:
 
 # Replace package-name with your package name
 env:
-  PACKAGE_NAME: package-name
+  PACKAGE_NAME: open_supply_hub
 
 jobs:
   build:

@@ -1,51 +1,107 @@
-# re-python-package
+# Open Supply Hub
 
-This template repository is created by the [UU Research Engineering team](https://utrechtuniversity.github.io/research-engineering/) and is aimed to provide a simple project template for python package development.
+<!-- Include Github badges here (optional) -->
+<!-- e.g. Github Actions workflow status -->
+![workflow name](https://github.com/UtrechtUniversity/<REPOSITORY>/workflows/<WORKFLOW_NAME_OR_FILE_PATH>/badge.svg)
 
-The template includes:
-- Project directory structure
-- Project configuration using `pyproject.toml`
-- GitHub actions workflows for testing, linting, type checking and publishing on pypi
+Include a short description of the repository/project here (few sentences)
 
-Many other project templates exist, check for example this advanced [python template](https://github.com/NLeSC/python-template) by the NL eScience Center.
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
 
-## Dependencies
-This template uses:
-| Tool | Aim |
-| --- | --- |
-| setuptools | building |
-| flake8, pylint | code linting |
-| pytest | testing |
-| pydocstyle | checking docstrings |
-| mypy | type checking |
-| sphinx | documentation generation |
+- [Open Supply Hub](#project-title)
+  - [Table of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+  - [Usage](#usage)
+    - [Subsection](#subsection)
+  - [About the Project](#about-the-project)
+    - [Description](#description)  
+    - [License](#license)
+    - [Attribution and academic use](#attribution-and-academic-use)
+  - [Contributing](#contributing)
+  - [Contact](#contact)
 
-If needed, most of these tools can be removed by simply removing the GitHub action that calls the tool, or by changing `pyproject.toml`
+<!-- GETTING STARTED -->
+## Getting Started
 
-## How to use
+Guide to get a local copy of this project up and running.
 
-### Step 1: Create new repository from this template
-Click `Use this template` at the top of this page to create a new repository using this template
+### Prerequisites
 
-### Step 2: Change the name of your package in pyproject.toml
-- Change the name of the folder `package-name` to the name of your package
-- Open `pyproject.toml` and change `package-name` to the name of your package
-- Also change the authors and optionally any other items that you want to change
+To install and run this project you need to have the following prerequisites installed.
 
-### Step 3: Change GitHub Actions workflow
-- Open `.github/workflows/python-package.yml`
-- Change `package-name` to the name of your package (line 21)
-- Many actions are commented out, uncomment them when you want to start using them.
+- Python
 
-### Step 4: Replace this README file with your README
-- You may use this [README template](https://github.com/UtrechtUniversity/rse-project-templates/blob/master/README-template.md)
+### Installation
 
-### Step 5: Change the license file
-- Open `LICENSE`, change the copyright holder when required (line 3)
-- Or replace the entire license file if another license applies
+To run the project, ensure to install the project's dependencies.
 
-### Step 6: Add a citation file
-- Create a citation file for your repository using [cffinit](https://citation-file-format.github.io/cff-initializer-javascript/#/)
+```sh
+pip install -r requirements.txt
+```
 
-### Step 7: Publising on Pypi (optional/later)
-For publishing the package on Pypi you need to create [API tokens](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python#publishing-to-package-registries).
+<!-- USAGE -->
+## Usage
+
+This section describes how to run the project. It is highly recommended to use screenshots (on MacOS the combination `shift+cmd+4` and `spacebar` creates great screenshots).
+
+### Subsection
+
+Remember to divide the [Usage](#Usage) section in subsections for clarity.
+
+```sh
+python -m example.py
+```
+
+_For more examples, please refer to the [Documentation](sphinx-doc-website)_
+
+<!-- ABOUT THE PROJECT -->
+## About the Project
+
+**Date**: Month Year
+
+**Researcher(s)**:
+
+- Luc Fransen  (researcher.1@uu.nl)
+- Diliara Valeeva(researcher.2@uu.nl)
+
+**Research Software Engineer(s)**:
+
+- Modhurita Mitra (m.mitra@uu.nl)
+- Javier Garcia Bernardo (j.garciabernardo@uu.nl)
+- Parisa Zahedi (p.zahedi@uu.nl)
+
+
+<!-- A more elaborate description about the project/software (compared to the top of this page) can be included here-->
+### Description
+
+<!-- Do not forget to also include the license in a separate file(LICENSE[.txt/.md]) and link it properly. -->
+### License
+
+The code in this project is released under [License name](LICENSE).
+
+### Attribution and academic use
+
+What to include here depends on the project type.
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+To contribute:
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<!-- CONTACT -->
+## Contact
+
+Contact Name - [@twitterhandle](https://twitter.com/username) - contact.rse@uu.nl
+
+Project Link: [https://github.com/UtrechtUniversity/projectlink](https://github.com/UtrechtUniversity/projectlink)

@@ -3,10 +3,12 @@ requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "package-name"
-description = "My package description"
+name = "open_supply_hub"
+description = "convert json to csv"
 authors = [
-    {name = "name", email = "name@uu.nl"},
+    {name = "Modhurita Mitra", email = "m.mitra@uu.nl"},
+    {name = "Parisa Zahedi", email = "p.zahedi@uu.nl"},
+    {name = "Javier Garcia Bernardo", email = "j.garciabernardo@uu.nl"},
 ]
 readme = "README.md"
 requires-python = ">=3.8"
