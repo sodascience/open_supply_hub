@@ -2,9 +2,8 @@
 
 <!-- Include Github badges here (optional) -->
 <!-- e.g. Github Actions workflow status -->
-![workflow name](https://github.com/UtrechtUniversity/<REPOSITORY>/workflows/<WORKFLOW_NAME_OR_FILE_PATH>/badge.svg)
 
-Include a short description of the repository/project here (few sentences)
+Convert supply chain data from [Open Supply Hub](https://opensupplyhub.org) from JSON to CSV format. 
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
@@ -13,9 +12,6 @@ Include a short description of the repository/project here (few sentences)
   - [Table of Contents](#table-of-contents)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-  - [Usage](#usage)
-    - [Subsection](#subsection)
   - [About the Project](#about-the-project)
     - [Description](#description)  
     - [License](#license)
@@ -26,41 +22,16 @@ Include a short description of the repository/project here (few sentences)
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Guide to get a local copy of this project up and running.
-
 ### Prerequisites
 
 To install and run this project you need to have the following prerequisites installed.
 
 - Python
 
-### Installation
-
-To run the project, ensure to install the project's dependencies.
-
-```sh
-pip install -r requirements.txt
-```
-
-<!-- USAGE -->
-## Usage
-
-This section describes how to run the project. It is highly recommended to use screenshots (on MacOS the combination `shift+cmd+4` and `spacebar` creates great screenshots).
-
-### Subsection
-
-Remember to divide the [Usage](#Usage) section in subsections for clarity.
-
-```sh
-python -m example.py
-```
-
-_For more examples, please refer to the [Documentation](sphinx-doc-website)_
-
 <!-- ABOUT THE PROJECT -->
 ## About the Project
 
-**Date**: Month Year
+**Date**: February 2023
 
 **Researcher(s)**:
 
@@ -77,31 +48,16 @@ _For more examples, please refer to the [Documentation](sphinx-doc-website)_
 <!-- A more elaborate description about the project/software (compared to the top of this page) can be included here-->
 ### Description
 
+We have downloaded global supply chain data from the [Open Supply Hub](https://opensupplyhub.org) website via an API. The data is in the form of several files in JSON format. We want to represent this information in the form of a CSV file. Each row of this CSV file contains the brand, supplier, and several other properties of the supplier.
+
 <!-- Do not forget to also include the license in a separate file(LICENSE[.txt/.md]) and link it properly. -->
 ### License
 
-The code in this project is released under [License name](LICENSE).
-
-### Attribution and academic use
-
-What to include here depends on the project type.
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-To contribute:
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+The code in this project is released under [MIT License](/LICENSE).
 
 <!-- CONTACT -->
 ## Contact
 
-Contact Name - [@twitterhandle](https://twitter.com/username) - contact.rse@uu.nl
+Contact Email: contact.rse@uu.nl
 
 Project Link: [https://github.com/UtrechtUniversity/projectlink](https://github.com/UtrechtUniversity/projectlink)
