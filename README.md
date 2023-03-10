@@ -15,8 +15,6 @@ Convert supply chain data from [Open Supply Hub](https://opensupplyhub.org) from
   - [About the Project](#about-the-project)
     - [Description](#description)  
     - [License](#license)
-    - [Attribution and academic use](#attribution-and-academic-use)
-  - [Contributing](#contributing)
   - [Contact](#contact)
 
 <!-- GETTING STARTED -->
@@ -58,6 +56,6 @@ The code in this project is released under [MIT License](/LICENSE).
 <!-- CONTACT -->
 ## Contact
 
-Contact Email: contact.rse@uu.nl
+Contact email: contact.rse@uu.nl
 
-Project Link: [https://github.com/UtrechtUniversity/projectlink](https://github.com/UtrechtUniversity/projectlink)
+Project link: [https://github.com/sodascience/open_supply_hub](https://github.com/sodascience/open_supply_hub)
