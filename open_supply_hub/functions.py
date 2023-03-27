@@ -1,8 +1,11 @@
+# Functions for Open Supply Hub project
+
+import pandas as pd
+
 def extract_facility_data(facility):
     '''
     Extract data about facility
     '''
-
     data = {
         'os_id': facility['properties']['os_id'], # OS ID of supplier
         'facility_name': facility['properties']['name'], #Name of supplier
@@ -12,7 +15,7 @@ def extract_facility_data(facility):
         'lat': facility['geometry']['coordinates'][1], #Latitude of supplier
         'lng': facility['geometry']['coordinates'][0], # Longitude of supplier
         'is_closed': facility['properties']['is_closed'], #Is the supplier now closed?
-    }
+        }
 
     return data
 
@@ -21,26 +24,25 @@ def extract_contributor_data(facility, contributor):
     '''
     Extract data entered by contributor
     '''
-    #Extract information about contributor
-    
+    # Extract information about contributor    
     data = {
-            'contributor_id': contributor['contributor_id'], #Contributor name
-            'contributor_name': contributor['contributor_name'], #Contributor ID
-            'os_id': facility['properties']['os_id'], #Supplier OS ID     
+            'contributor_id': contributor['contributor_id'], # Contributor name
+            'contributor_name': contributor['contributor_name'], # Contributor ID
+            'os_id': facility['properties']['os_id'], # Supplier OS ID     
             'supplier_name': contributor['value'], # Supplier name
-            'contribution_date': contributor['updated_at'].split('T')[0] #Date on which this contributor updated entry for this supplier 
+            'contribution_date': contributor['updated_at'].split('T')[0] # Date on which this contributor updated entry for this supplier 
            }
     
-    #Extract information about the facility (supplier), entered by the contributor
+    # Extract information about the facility (supplier), entered by the contributor
 
-    #Address of the supplier
+    # Address of the supplier
     if facility['properties']['extended_fields']['address']:
         for entry in facility['properties']['extended_fields']['address']:   
             entry['contribution_date'] = entry['updated_at'].split('T')[0]
             if entry['contributor_id'] == data['contributor_id'] and entry['contribution_date'] == data['contribution_date']:
                 data['address'] = entry['value']
     
-    #Minimum and maximum number of workers
+    # Minimum and maximum number of workers
     if facility['properties']['extended_fields']['number_of_workers']: 
         for entry in facility['properties']['extended_fields']['number_of_workers']: 
             entry['contribution_date'] = entry['updated_at'].split('T')[0]
@@ -48,7 +50,7 @@ def extract_contributor_data(facility, contributor):
                 data['number_of_workers_min'] = entry['value']['min']
                 data['number_of_workers_max'] = entry['value']['max']
 
-    #Parent company of the supplier
+    # Parent company of the supplier
     if facility['properties']['extended_fields']['parent_company']:
         for entry in facility['properties']['extended_fields']['parent_company']:   
             entry['contribution_date'] = entry['updated_at'].split('T')[0]
@@ -56,7 +58,7 @@ def extract_contributor_data(facility, contributor):
                 if 'name' in entry['value'].keys():
                     data['parent_company'] = entry['value']['name']
 
-    #Facility type of the supplier
+    # Facility type of the supplier
     if facility['properties']['extended_fields']['facility_type']:
         for entry in facility['properties']['extended_fields']['facility_type']:   
             entry['contribution_date'] = entry['updated_at'].split('T')[0]
@@ -64,7 +66,7 @@ def extract_contributor_data(facility, contributor):
                 if 'raw_values' in entry['value'].keys():
                     data['facility_type'] = entry['value']['raw_values']      
 
-    #Processing type of the supplier
+    # Processing type of the supplier
     if facility['properties']['extended_fields']['processing_type']:
         for entry in facility['properties']['extended_fields']['processing_type']:              
             entry['contribution_date'] = entry['updated_at'].split('T')[0]
@@ -72,7 +74,7 @@ def extract_contributor_data(facility, contributor):
                 if 'raw_values' in entry['value'].keys():
                     data['processing_type'] = entry['value']['raw_values']  
 
-    #Product type of the supplier
+    # Product type of the supplier
     if facility['properties']['extended_fields']['product_type']:
         for entry in facility['properties']['extended_fields']['product_type']:   
             entry['contribution_date'] = entry['updated_at'].split('T')[0]
@@ -82,5 +84,18 @@ def extract_contributor_data(facility, contributor):
 
     return data
 
-def write_to_csv(dataframe):
-    
+def write_to_csv(data_dictionary, output_filename, sort_columns):
+    '''
+    Write data from dictionary to csv format:
+    data_dictionary: input data in dictionary format
+    ouput_filename: output filename
+    sort_columns: columns by which the output csv file must be sorted
+    '''
+    # Convert to pandas dataframe
+    df = pd.DataFrame(data_dictionary)
+    # Replace all NaN entries by blank spaces
+    df = df.fillna('')
+    # Sort the dataframe by supplier name
+    df_sorted_facilities = df.sort_values(sort_columns)
+    # Write sorted dataframe to csv file
+    df_sorted_facilities.to_csv(output_filename, index=False, sep='\t')
