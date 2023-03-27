@@ -1,10 +1,8 @@
-'''
-Extract data about facility
-'''
-
 def extract_facility_data(facility):
-    
-    #Extract data about facility
+    '''
+    Extract data about facility
+    '''
+
     data = {
         'os_id': facility['properties']['os_id'], # OS ID of supplier
         'facility_name': facility['properties']['name'], #Name of supplier
@@ -18,12 +16,11 @@ def extract_facility_data(facility):
 
     return data
 
-'''
-Extract data entered by contributor
-'''
 
 def extract_contributor_data(facility, contributor):
-
+    '''
+    Extract data entered by contributor
+    '''
     #Extract information about contributor
     
     data = {
@@ -84,3 +81,6 @@ def extract_contributor_data(facility, contributor):
                     data['product_type'] = ', '.join(entry['value']['raw_values']) 
 
     return data
+
+def write_to_csv(dataframe):
+    
