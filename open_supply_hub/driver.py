@@ -48,10 +48,10 @@ if __name__ == "__main__":
                 #Go through each contributor and record data entered by it
                 for contributor in facility['properties']['extended_fields']['name']:
                     #Check if the contributor type corresponding to this contributor ID is known
-                    if contributor['contributor_id'] in contributor_type['id'].values:
+                    #if contributor['contributor_id'] in contributor_type['id'].values:
                         #Choose only contributors that are of the type "Brand / Retailer"
-                        if contributor_type[contributor_type['id']==contributor['contributor_id']]['contrib_type'].item() \
-                            == 'Brand / Retailer':
+                        #if contributor_type[contributor_type['id']==contributor['contributor_id']]['contrib_type'].item() \
+                         #   == 'Brand / Retailer':
                             #Extract contributor data, and data entered by it about this facility
                             data_contributor = extract_contributor_data(facility, contributor)                                                
                             alldata_contributors.append(data_contributor)
