@@ -11,6 +11,9 @@ if __name__ == "__main__":
     #Get list of files from the data directory containing the json files
     files = glob.glob('../data/json_files/*')
     #files = glob.glob('../data/json_files_small_subset/*')
+
+    #Mapping contributor ID to contributor type 
+    contributor_type = pd.read_excel('../data/contrib_type_id.xlsx')
     
     #List containing all entries of the facility dataframe. 
     #Each row of the dataframe contains data for a unique (brand, supplier) pair
@@ -42,17 +45,16 @@ if __name__ == "__main__":
                 data_facility = extract_facility_data(facility) #Get facility data
                 alldata_facilities.append(data_facility)
 
+                #Go through each contributor and record data entered by it
                 for contributor in facility['properties']['extended_fields']['name']:
-                    data_initial = {
-                        'contributor_id': contributor['contributor_id'], #Contributor name
-                        'contributor_name': contributor['contributor_name'], #Contributor ID
-                        'os_id': facility['properties']['os_id'], #Supplier OS ID     
-                        'supplier_name': contributor['value'], # Supplier name
-                        'contribution_date': contributor['updated_at'].split('T')[0] #Date on which this contributor updated entry for this supplier 
-                        }
-
-                    data_contributor = extract_contributor_data(data_initial, facility, contributor) #Add data from extended fields                                               
-                    alldata_contributors.append(data_contributor)
+                    #Check if the contributor type corresponding to this contributor ID is known
+                    if contributor['contributor_id'] in contributor_type['id'].values:
+                        #Choose only contributors that are of the type "Brand / Retailer"
+                        if contributor_type[contributor_type['id']==contributor['contributor_id']]['contrib_type'].item() \
+                            == 'Brand / Retailer':
+                            #Extract contributor data, and data entered by it about this facility
+                            data_contributor = extract_contributor_data(facility, contributor)                                                
+                            alldata_contributors.append(data_contributor)
 
     end_time = time.time()
 

@@ -22,9 +22,19 @@ def extract_facility_data(facility):
 Extract data entered by contributor
 '''
 
-def extract_contributor_data(data, facility, contributor):
+def extract_contributor_data(facility, contributor):
+
+    #Extract information about contributor
     
-    #Extract information about the supplier, entered by the contributor
+    data = {
+            'contributor_id': contributor['contributor_id'], #Contributor name
+            'contributor_name': contributor['contributor_name'], #Contributor ID
+            'os_id': facility['properties']['os_id'], #Supplier OS ID     
+            'supplier_name': contributor['value'], # Supplier name
+            'contribution_date': contributor['updated_at'].split('T')[0] #Date on which this contributor updated entry for this supplier 
+           }
+    
+    #Extract information about the facility (supplier), entered by the contributor
 
     #Address of the supplier
     if facility['properties']['extended_fields']['address']:
