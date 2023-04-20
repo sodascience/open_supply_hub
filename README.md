@@ -55,12 +55,12 @@ We have obtained global supply chain data from the [Open Supply Hub](https://ope
 
 #### To extract data from JSON files
 1. Assign the variable `data_directory` to the directory where the JSON files are stored.
-2. Assign the variable `results` to the directory where you want to store the output files.
+2. Assign the variable `results` to the directory where you want to store the output files. Create it if it doesn't exist yet.
 3. Run the notebook cells which are under the heading "Obtain data from JSON files".
 4. Two files with information about the facilities and the contributors are now stored as CSV files in the `results` directory.
 
 #### To extract data via API
-1. Assign the variable `results` to the directory where you want to store the output files.
+1. Assign the variable `results` to the directory where you want to store the output files. Create it if it doesn't exist yet.
 2. Log into the [Open Supply Hub website](https://opensupplyhub.org) (create an account if you don't have one) and find the `sessionid`. Enter it as the value of `sessionid` in `cookies`.
 3. Run the notebook cells which are under the heading "Obtain data via API".
 4. A file with information about the facilities and the contributors is now created as a CSV file in the `results` directory.
