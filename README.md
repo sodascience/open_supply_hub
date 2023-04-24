@@ -1,9 +1,8 @@
-# Open Supply Hub
 
 <!-- Include Github badges here (optional) -->
 <!-- e.g. Github Actions workflow status -->
 
-Convert supply chain data from [Open Supply Hub](https://opensupplyhub.org) from JSON to CSV format. 
+Obtain supply chain data from [Open Supply Hub](https://opensupplyhub.org). 
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
@@ -29,12 +28,12 @@ To install and run this project you need to have the following prerequisites ins
 <!-- ABOUT THE PROJECT -->
 ## About the Project
 
-**Date**: February 2023
+**Date**: February - April 2023
 
 **Researcher(s)**:
 
-- Luc Fransen  (researcher.1@uu.nl)
-- Diliara Valeeva(researcher.2@uu.nl)
+- Luc Fransen (l.w.fransen@uva.nl)
+- Diliara Valeeva (d.valeeva@uva.nl)
 
 **Research Software Engineer(s)**:
 
@@ -42,12 +41,29 @@ To install and run this project you need to have the following prerequisites ins
 - Javier Garcia Bernardo (j.garciabernardo@uu.nl)
 - Parisa Zahedi (p.zahedi@uu.nl)
 
-
 <!-- A more elaborate description about the project/software (compared to the top of this page) can be included here-->
 ### Description
 
-We have downloaded global supply chain data from the [Open Supply Hub](https://opensupplyhub.org) website via an API. The data is in the form of several files in JSON format. We want to represent this information in the form of a CSV file. Each row of this CSV file contains the brand, supplier, and several other properties of the supplier.
+We have obtained global supply chain data from the [Open Supply Hub](https://opensupplyhub.org) website from a JSON dump and via an API. 
 
+### Usage
+1. From the `open supply hub`[directory](open_supply_hub), download the following files into the same folder/directory:
+	1. process_json.py
+	2. process_api.py
+	3. examples.ipynb
+2. Open `examples.ipynb` in a browser.
+
+#### To extract data from JSON files
+1. Assign the variable `data_directory` to the directory where the JSON files are stored.
+2. Assign the variable `results` to the directory where you want to store the output files. Create it if it doesn't exist yet.
+3. Run the notebook cells which are under the heading "Obtain data from JSON files".
+4. Two CSV files with information about the facilities and the contributors are now stored in the `results` directory.
+
+#### To extract data via API
+1. Assign the variable `results` to the directory where you want to store the output files. Create it if it doesn't exist yet.
+2. Log into the [Open Supply Hub website](https://opensupplyhub.org) (create an account if you don't have one) and find the `sessionid`. Enter it as the value of `sessionid` in `cookies`.
+3. Run the notebook cells which are under the heading "Obtain data via API".
+4. A CSV file with information about the facilities and the contributors is now created in the `results` directory.
 <!-- Do not forget to also include the license in a separate file(LICENSE[.txt/.md]) and link it properly. -->
 ### License
 
