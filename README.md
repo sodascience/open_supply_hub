@@ -60,18 +60,4 @@ We have obtained global supply chain data from the [Open Supply Hub](https://ope
 4. Two CSV files with information about the facilities and the contributors are now stored in the `results` directory.
 
 #### To extract data via API
-1. Assign the variable `results` to the directory where you want to store the output files. Create it if it doesn't exist yet.
-2. Log into the [Open Supply Hub website](https://opensupplyhub.org) (create an account if you don't have one) and find the `sessionid`. Enter it as the value of `sessionid` in `cookies`.
-3. Run the notebook cells which are under the heading "Obtain data via API".
-4. A CSV file with information about the facilities and the contributors is now created in the `results` directory.
-<!-- Do not forget to also include the license in a separate file(LICENSE[.txt/.md]) and link it properly. -->
-### License
-
-The code in this project is released under [MIT License](/LICENSE).
-
-<!-- CONTACT -->
-## Contact
-
-Contact email: contact.rse@uu.nl
-
-Project link: [https://github.com/sodascience/open_supply_hub](https://github.com/sodascience/open_supply_hub)
+1. Assign the variable `results` to the directory where you want to store the output files. Create it if it 
