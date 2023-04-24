@@ -60,4 +60,4 @@ We have obtained global supply chain data from the [Open Supply Hub](https://ope
 4. Two CSV files with information about the facilities and the contributors are now stored in the `results` directory.
 
 #### To extract data via API
-1. Assign the variable `results` to the directory where you want to store the output files. Create it if it 
+1. Assign the variable `results` to the directory where you want to store the output files. 
