@@ -2,31 +2,40 @@
 <!-- Include Github badges here (optional) -->
 <!-- e.g. Github Actions workflow status -->
 
-Obtain supply chain data from [Open Supply Hub](https://opensupplyhub.org). 
+Python scripts to download and process supply chain data from [Open Supply Hub](https://opensupplyhub.org). 
+
+Data: Either JSON dump and via an API (contact [Open Supply Hub](https://opensupplyhub.org) for pricing)
 
 <!-- TABLE OF CONTENTS -->
-## Table of Contents
-
-- [Open Supply Hub](#project-title)
-  - [Table of Contents](#table-of-contents)
-  - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-  - [About the Project](#about-the-project)
-    - [Description](#description)  
-    - [License](#license)
-  - [Contact](#contact)
-
-<!-- GETTING STARTED -->
-## Getting Started
-
 ### Prerequisites
 
 To install and run this project you need to have the following prerequisites installed.
-
 - Python
+- Pandas
+- Numpy
+
+
+### Usage
+1. Download the following files from the `open supply hub`[directory](open_supply_hub):
+	* process_json.py (extracts data from JSON dump)
+	* process_api.py (exctracts data from aPI)
+	* examples.ipynb
+2. Open `examples.ipynb` in a Jupyter Notebook.
+  * Section "Obtain data from JSON files" shows how to extract data from a JSON dump
+  * Section "Obtain data via API" shows how to extract data from the API
+
+### Output
+* Using the JSON dumpts: Two CSV files, one with information about the facilities (name, address, etc), one with information about the contributions (date, supplier, etc)
+* Using the API: One CSV file in the same format as the Excel/CSV exports from the website
+
+
+
+### License
+
+The code in this project is released under [MIT License](/LICENSE).
 
 <!-- ABOUT THE PROJECT -->
-## About the Project
+### About the Project
 
 **Date**: February - April 2023
 
@@ -41,37 +50,16 @@ To install and run this project you need to have the following prerequisites ins
 - Javier Garcia Bernardo (j.garciabernardo@uu.nl)
 - Parisa Zahedi (p.zahedi@uu.nl)
 
-<!-- A more elaborate description about the project/software (compared to the top of this page) can be included here-->
-### Description
 
-We have obtained global supply chain data from the [Open Supply Hub](https://opensupplyhub.org) website from a JSON dump and via an API. 
-
-### Usage
-1. From the `open supply hub`[directory](open_supply_hub), download the following files into the same folder/directory:
-	1. process_json.py
-	2. process_api.py
-	3. examples.ipynb
-2. Open `examples.ipynb` in a browser.
-
-#### To extract data from JSON files
-1. Assign the variable `data_directory` to the directory where the JSON files are stored.
-2. Assign the variable `results` to the directory where you want to store the output files. Create it if it doesn't exist yet.
-3. Run the notebook cells which are under the heading "Obtain data from JSON files".
-4. Two CSV files with information about the facilities and the contributors are now stored in the `results` directory.
-
-#### To extract data via API
-1. Assign the variable `results` to the directory where you want to store the output files. Create it if it doesn't exist yet.
-2. Log into the [Open Supply Hub website](https://opensupplyhub.org) (create an account if you don't have one) and find the `sessionid`. Enter it as the value of `sessionid` in `cookies`.
-3. Run the notebook cells which are under the heading "Obtain data via API".
-4. A CSV file with information about the facilities and the contributors is now created in the `results` directory.
-<!-- Do not forget to also include the license in a separate file(LICENSE[.txt/.md]) and link it properly. -->
-### License
-
-The code in this project is released under [MIT License](/LICENSE).
 
 <!-- CONTACT -->
 ## Contact
 
-Contact email: contact.rse@uu.nl
+This project is developed and maintained by the [ODISSEI Social Data
+Science (SoDa)](https://odissei-data.nl/nl/soda/) team.
+
+<img src="https://odissei-soda.nl/images/logos/soda_logo.svg" alt="SoDa logo" width="250px"/>
+
+Do you have questions, suggestions, or remarks? File an issue in the issue tracker or feel free to contact the team via https://odissei-soda.nl/
 
 Project link: [https://github.com/sodascience/open_supply_hub](https://github.com/sodascience/open_supply_hub)

@@ -47,8 +47,25 @@ def parse_request(r, cont_type):
         print(r.url)
         raise("Problem with request")
         
-def get_data(contributor_types, parms, url, cookies, data_folder, filename):
-        
+def get_data(cookies, filename = 'data.tsv.gz', contributor_types=None, url="https://opensupplyhub.org/api/facilities-downloads/?"):
+    if contributor_types is None:
+        # define parameters (these come from the website, make sure that they are up to date before running the code)
+        contributor_types = ['Academic / Researcher / Journalist / Student', 
+                            'Auditor / Certification Scheme / Service Provider', 
+                            'Brand / Retailer', 
+                            'Civil Society Organization', 
+                            'Facility / Factory / Manufacturing Group / Supplier / Vendor', 
+                            'Multi-Stakeholder Initiative', 
+                            'Union', 
+                            'Other']
+    
+    parms = {"detail": "true",
+            "format": "json",
+            "page": 1,
+            "pageSize": 100} #100 seems to be the largest possible pageSize
+            
+
+
     # Get all data
     df_all = []
     for cont_type in contributor_types:
@@ -70,4 +87,4 @@ def get_data(contributor_types, parms, url, cookies, data_folder, filename):
     df = df.drop_duplicates()
     
     # save data
-    df.to_csv(f"{data_folder}/{filename}", compression="gzip", sep="\t", index=None)
+    df.to_csv(filename, compression="gzip", sep="\t", index=None)

@@ -5,8 +5,9 @@ import json
 import glob
 import time
 
-def get_data(data_directory, output_directory,
-             facilities_filename, contributors_filename):
+def get_data(data_directory,
+             filename_facilities="facilities.csv", 
+             filename_contributions="contributions.csv"):
     '''
     Gets information from JSON files, and writes it into two files,
     one containing information about facilities, and the other about
@@ -15,9 +16,8 @@ def get_data(data_directory, output_directory,
     Parameters
     ----------
     data_directory : Location of JSON files
-    output_directory : Directory to which output files are written
-    facilities_filename : File to which facilities information is written
-    contributors_filename : File to which contributors information is written
+    filename_facilities : File to which facilities information is written
+    filename_facilities : File to which contributors information is written
     '''
     # Get list of files from the data directory containing the json files
     files = glob.glob(data_directory + '/*')
@@ -65,11 +65,12 @@ def get_data(data_directory, output_directory,
 
     # Write out facilities data to csv file
     write_to_csv(alldata_facilities, 
-                 output_directory + '/' + facilities_filename + '.csv', 'facility_name')
+                 filename_facilities, 
+                 'facility_name')
 
     # Write out contributors data to csv file
-    write_to_csv(alldata_contributors, 
-                 output_directory + '/' + contributors_filename + '.csv', 
+    write_to_csv(alldata_contributors,
+                 filename_contributions,
                  ['contributor_name', 'os_id', 'contribution_date'])
 
 def extract_facility_data(facility):
@@ -166,6 +167,6 @@ def write_to_csv(data_dictionary, output_filename, sort_columns):
     # Replace all NaN entries by blank spaces
     df = df.fillna('')
     # Sort the dataframe by supplier name
-    df_sorted_facilities = df.sort_values(sort_columns)
+    df_sorted_facilities = df.sort_values(sort_columns).drop_duplicates()
     # Write sorted dataframe to csv file
     df_sorted_facilities.to_csv(output_filename, index=False, sep='\t')
