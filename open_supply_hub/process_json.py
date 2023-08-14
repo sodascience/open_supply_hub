@@ -1,9 +1,9 @@
-# Functions for Open Supply Hub project
+"""Functions for open supply hub project, json data source"""
 
-import pandas as pd
 import json
 import glob
 import time
+import pandas as pd
 
 def get_data(data_directory,
              filename_facilities="facilities.csv", 
