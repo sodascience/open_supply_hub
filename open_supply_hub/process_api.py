@@ -1,11 +1,12 @@
-import requests
+import argparse
 import urllib.parse
 import json
+import requests
 import numpy as np
 import pandas as pd
 
 def parse_request(r, cont_type):
-    """
+    '''
     Parses json request from the OpenSupplyHub API into a Pandas DataFrame.
 
     Parameters
@@ -33,7 +34,7 @@ def parse_request(r, cont_type):
     "headers" and "rows" sub-objects. It also assumes that empty values in the DataFrame
     are represented by empty strings, which are replaced with NaN values. Finally, it
     drops any columns that are entirely composed of NaN values.
-    """
+    '''
 
     if r.ok:
         response = json.loads(r.text)
@@ -88,3 +89,34 @@ def get_data(cookies, filename = 'data.tsv.gz', contributor_types=None, url="htt
     
     # save data
     df.to_csv(filename, compression="gzip", sep="\t", index=None)
+
+def main():
+
+    '''
+    Main function:
+        Loads user-defined variables from the configuration file.
+        Calls the get_data function with these variables
+        and creates the output CSV file.
+    
+    The configuration file must be called config_api.json and must contain the 
+    following variables in a dictionary format:
+       Mandatory:
+       - cookies
+       Optional:
+       - filename
+       - contributor_types
+       - url 
+    '''
+
+    # Load parameters from configuration file
+    with open('config_api.json', 'r', encoding='utf-8') as file:
+        config = json.load(file)
+
+    # Call function to process data
+    get_data(**config)
+
+if __name__ == "__main__":
+    main()
+    
+
+    

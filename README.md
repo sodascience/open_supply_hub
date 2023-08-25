@@ -1,21 +1,22 @@
+## Processing supply chain data obtained from Open Supply Hub
 
-<!-- Include Github badges here (optional) -->
-<!-- e.g. Github Actions workflow status -->
+### Introduction
 
-Python scripts to download and process supply chain data from [Open Supply Hub](https://opensupplyhub.org). 
+This repository contains python scripts to download and process supply chain data from [Open Supply Hub](https://opensupplyhub.org). Open Supply Hub is a website that provides worldwide supply chain data for various industry sectors.
 
-Data: Either JSON dump and via an API (contact [Open Supply Hub](https://opensupplyhub.org) for pricing)
+**Input data**: The data can be obtained either as a JSON dump or via an API. Contact Open Supply Hub for pricing.
+**Output data**: Input data neatly formatted in CSV format. The data contains information about suppliers, the industry sectors they belong to, the brands they supply to, etc. 
 
 <!-- TABLE OF CONTENTS -->
 ### Prerequisites
 
-To install and run this project you need to have the following prerequisites installed.
-- Python
-- Pandas
-- Numpy
+To install and run this project, run the following command from your terminal:
+
+``` pip install -r requirements.txt```
 
 
 ### Usage
+
 1. Download the following files from the `open supply hub`[directory](open_supply_hub):
 	* process_json.py (extracts data from JSON dump)
 	* process_api.py (exctracts data from aPI)
@@ -25,9 +26,8 @@ To install and run this project you need to have the following prerequisites ins
   * Section "Obtain data via API" shows how to extract data from the API
 
 ### Output
-* Using the JSON dumpts: Two CSV files, one with information about the facilities (name, address, etc), one with information about the contributions (date, supplier, etc)
-* Using the API: One CSV file in the same format as the Excel/CSV exports from the website
-
+* Using the JSON dumps: Two CSV files, one with information about the facilities (name, address, etc), one with information about the contributions (date, supplier, etc)
+* Using the API: One CSV file in the same format as the Excel/CSV exports from the website.
 
 
 ### License
@@ -49,8 +49,6 @@ The code in this project is released under [MIT License](/LICENSE).
 - Modhurita Mitra (m.mitra@uu.nl)
 - Javier Garcia Bernardo (j.garciabernardo@uu.nl)
 - Parisa Zahedi (p.zahedi@uu.nl)
-
-
 
 <!-- CONTACT -->
 ## Contact
