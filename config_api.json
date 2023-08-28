@@ -1,0 +1,15 @@
+{
+    "cookies": "enter your api info here",
+    "filename": "results/data.tsv.gz",
+    "contributor_types": [
+        "Academic / Researcher / Journalist / Student",
+        "Auditor / Certification Scheme / Service Provider",
+        "Brand / Retailer",
+        "Civil Society Organization",
+        "Facility / Factory / Manufacturing Group / Supplier / Vendor",
+        "Multi-Stakeholder Initiative",
+        "Union",
+        "Other"
+    ],
+    "url": "https://opensupplyhub.org/api/facilities-downloads/?"
+}

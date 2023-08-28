@@ -1,0 +1,5 @@
+{
+    "data_directory": "data_dump/json_files",
+    "filename_facilities": "results/facilities.csv", 
+    "filename_contributions": "results/contributors.csv"
+}

@@ -1,7 +1,3 @@
-# Functions for Open Supply Hub project
-
-import sys
-import argparse
 import json
 import glob
 import time
@@ -9,9 +5,10 @@ import pandas as pd
 
 def get_data(data_directory,
              filename_facilities="facilities.csv", 
-             filename_contributions="contributors.csv"):
+             filename_contributions="contributors.csv",
+             verbose=True):
     
-    '''
+    """
     Gets information from JSON files, and writes it into two files,
     one containing information about facilities, and the other about
     contributors.
@@ -21,7 +18,7 @@ def get_data(data_directory,
     data_directory : Location of JSON files
     filename_facilities : File to which facilities information is written
     filename_contributors : File to which contributors information is written
-    '''
+    """
     
     # Get list of files from the data directory containing the json files
     files = glob.glob(data_directory + '/*')
@@ -40,11 +37,16 @@ def get_data(data_directory,
     start_time = time.time()
 
     # Go through all json files in the directory
+    n_curr = 0
+    n_files = len(files)
     for filename in files:
+        if verbose:
+            n_curr += 1
+            print(f"Currently processing {filename}... ({n_curr}/{n_files})", end="\r")
 
         # Read one json file
         f = open(filename, 'r')
-        manyfacilities = json.load(f)    
+        manyfacilities = json.load(f)
 
         # Read one entry in the json file
         for facility in manyfacilities['features']:
@@ -65,7 +67,8 @@ def get_data(data_directory,
     end_time = time.time()
 
     run_time = end_time - start_time
-    print("Run time: %f minutes" %(run_time/60))
+    if verbose: 
+        print(f"\nRun time: {run_time/60} minutes")
 
     # Write out facilities data to csv file
     write_to_csv(alldata_facilities, 
@@ -75,13 +78,12 @@ def get_data(data_directory,
     # Write out contributors data to csv file
     write_to_csv(alldata_contributors,
                  filename_contributions,
-                 ['contributor_name', 'os_id', 'contribution_date'])
+                 ['contribution_date'])
 
 def extract_facility_data(facility):
-    
-    '''
+    """
     Extract data about facility
-    '''
+    """
     
     data = {
         'os_id': facility['properties']['os_id'], # OS ID of supplier
@@ -97,11 +99,10 @@ def extract_facility_data(facility):
     return data
 
 
-def extract_contributor_data(facility, contributor):
-    
-    '''
+def extract_contributor_data(facility, contributor):  
+    """
     Extract data entered by contributor
-    '''
+    """
     
     # Extract information about contributor    
     data = {
@@ -164,26 +165,27 @@ def extract_contributor_data(facility, contributor):
     return data
 
 def write_to_csv(data_dictionary, output_filename, sort_columns):
-    
-    '''
+    """
     Write data from dictionary to csv format:
     data_dictionary: input data in dictionary format
     ouput_filename: output filename
     sort_columns: columns by which the output csv file must be sorted
-    '''
+    """
     
     # Convert to pandas dataframe
     df = pd.DataFrame(data_dictionary)
-    # Replace all NaN entries by blank spaces
-    df = df.fillna('')
-    # Sort the dataframe by supplier name
-    df_sorted_facilities = df.sort_values(sort_columns).drop_duplicates()
+
+    # Replace all NaN entries by blank spaces and sort
+    df = df.fillna('').sort_values(sort_columns)
+
+    # drop duplicates in presence of columns containing lists
+    df_dedup = df.loc[df.astype(str).drop_duplicates().index]
+
     # Write sorted dataframe to csv file
-    df_sorted_facilities.to_csv(output_filename, index=False, sep='\t')
+    df_dedup.to_csv(output_filename, index=False, sep='\t')
 
 def main():
-
-    '''
+    """
     Main function:
         Loads user-defined variables from the configuration file.
         Calls the get_data function with these variables
@@ -198,7 +200,7 @@ def main():
          facilities
        - filename_contributors: Output CSV filename with information about \
          contributorss
-    '''
+    """
 
     # Load parameters from configuration file
     with open('config_json.json', 'r', encoding='utf-8') as file:
