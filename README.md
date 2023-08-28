@@ -14,17 +14,21 @@ To install and run this project, run the following command from your terminal:
 
 ``` pip install -r requirements.txt```
 
-
 ### Usage
 
 1. Download the following files from the `open supply hub`[directory](open_supply_hub):
 	* process_json.py (extracts data from JSON dump)
 	* process_api.py (exctracts data from aPI)
 	* examples.ipynb
-2. Open `examples.ipynb` in a Jupyter Notebook.
-  * Section "Obtain data from JSON files" shows how to extract data from a JSON dump
-  * Section "Obtain data via API" shows how to extract data from the API
-
+2. Add the user-supplied parameters in a configuration file. The configuration file for the JSON method should be called `config_json.py` and that for the API method`config_api.py`.
+3. Run the code from the command line:
+```
+python process_json.py
+```
+or
+```
+python process_api.py
+```
 ### Output
 * Using the JSON dumps: Two CSV files, one with information about the facilities (name, address, etc), one with information about the contributions (date, supplier, etc)
 * Using the API: One CSV file in the same format as the Excel/CSV exports from the website.
@@ -61,3 +65,4 @@ Science (SoDa)](https://odissei-data.nl/nl/soda/) team.
 Do you have questions, suggestions, or remarks? File an issue in the issue tracker or feel free to contact the team via https://odissei-soda.nl/
 
 Project link: [https://github.com/sodascience/open_supply_hub](https://github.com/sodascience/open_supply_hub)
+

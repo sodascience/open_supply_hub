@@ -201,7 +201,7 @@ def main():
     '''
 
     # Load parameters from configuration file
-    with open('config_api.json', 'r', encoding='utf-8') as file:
+    with open('config_json.json', 'r', encoding='utf-8') as file:
         config = json.load(file)
 
     # Call function to process data
