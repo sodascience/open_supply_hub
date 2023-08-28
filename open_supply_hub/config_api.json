@@ -1,7 +1,7 @@
 {
-"cookies" = <enter session cookies>,
-"filename" = "data.tsv.gz",
-"contributor_types" = ["Academic / Researcher / Journalist / Student", 
+    "cookies": <enter session cookies>,
+    "filename": "data.tsv.gz",
+    "contributor_types": ["Academic / Researcher / Journalist / Student", 
                             "Auditor / Certification Scheme / Service Provider", 
                             "Brand / Retailer", 
                             "Civil Society Organization", 
@@ -9,5 +9,5 @@
                             "Multi-Stakeholder Initiative", 
                             "Union", 
                             "Other"],
-"url"="https://opensupplyhub.org/api/facilities-downloads/?"
+    "url":"https://opensupplyhub.org/api/facilities-downloads/?"
 }

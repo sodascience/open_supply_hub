@@ -1,5 +1,5 @@
 {
-"data_directory" = "../data/json_files"
-"filename_facilities"="facilities.csv", 
-"filename_contributions"="contributors.csv"
+    "data_directory": "../data/json_files"
+    "filename_facilities": "facilities.csv", 
+    "filename_contributions": "contributors.csv"
 }
