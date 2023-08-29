@@ -32,7 +32,7 @@ Clone the repository, `cd` to it, and then follow either the JSON dump workflow 
 
 1. Get API access / API key from OpenSupplyHub (contact them for pricing)
 2. Add the API key and other information in the `config_api.json` configuration file.
-3. Run `python process_api.py`
+3. Run `python open_supply_hub/process_api.py`
 4. The results should now appear as a single compressed file in the `results` folder
 
 ### Output
